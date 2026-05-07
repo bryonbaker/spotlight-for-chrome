@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotlight Focus</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 240px;
+      padding: 20px;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #111;
+      color: #eee;
+    }
+
+    h1 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+    }
+
+    h1 .icon { font-size: 18px; }
+
+    .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      background: #444;
+      transition: background 0.3s;
+      margin-left: auto;
+    }
+    .status-dot.on { background: #f7c948; box-shadow: 0 0 6px #f7c948; }
+
+    #toggleBtn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      letter-spacing: 0.03em;
+    }
+
+    #toggleBtn.off {
+      background: #2a2a2a;
+      color: #aaa;
+      border: 1px solid #333;
+    }
+
+    #toggleBtn.on {
+      background: linear-gradient(135deg, #f7c948, #f5a623);
+      color: #111;
+      border: none;
+      box-shadow: 0 0 18px rgba(247,201,72,0.4);
+    }
+
+    #toggleBtn:active { transform: scale(0.97); }
+
+    .slider-section { margin-top: 16px; }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .slider-label span { color: #fff; font-weight: 600; }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: #333;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #f7c948;
+      cursor: pointer;
+      box-shadow: 0 0 6px rgba(247,201,72,0.5);
+    }
+
+    #dimSlider {
+      background: linear-gradient(to right, #111 0%, #888 100%);
+    }
+
+    .divider {
+      margin: 16px 0;
+      border: none;
+      border-top: 1px solid #222;
+    }
+
+    /* Keyboard shortcut section */
+    .shortcut-section { margin-top: 0; }
+
+    .shortcut-label {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .shortcut-display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+    }
+
+    .shortcut-display .label { font-size: 12px; color: #666; }
+
+    kbd {
+      background: #2a2a2a;
+      border: 1px solid #444;
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #f7c948;
+      white-space: nowrap;
+    }
+
+    #changeShortcutBtn {
+      width: 100%;
+      padding: 7px 10px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      color: #888;
+      font-size: 11px;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.2s, color 0.2s;
+      line-height: 1.5;
+    }
+
+    #changeShortcutBtn:hover {
+      border-color: #f7c948;
+      color: #ccc;
+    }
+
+    #changeShortcutBtn .arrow { float: right; color: #f7c948; }
+
+    #copyConfirm {
+      font-size: 11px;
+      color: #f7c948;
+      text-align: center;
+      margin-top: 6px;
+      height: 14px;
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+
+    .hint {
+      margin-top: 16px;
+      padding: 10px 12px;
+      background: #1a1a1a;
+      border-radius: 6px;
+      border-left: 3px solid #f7c948;
+      font-size: 11px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    .hint strong { color: #bbb; }
+  </style>
+</head>
+<body>
+  <h1><span class="icon">🔦</span> Spotlight Focus <span class="status-dot" id="dot"></span></h1>
+
+  <button id="toggleBtn" class="off">Enable Spotlight</button>
+
+  <div class="slider-section">
+    <div class="slider-label">
+      Spotlight size <span id="radiusVal">300px</span>
+    </div>
+    <input type="range" id="radiusSlider" min="30" max="600" step="10" value="150" />
+  </div>
+
+  <div class="slider-section">
+    <div class="slider-label">
+      Dim level <span id="dimVal">60%</span>
+    </div>
+    <input type="range" id="dimSlider" min="10" max="95" step="5" value="60" />
+  </div>
+
+  <hr class="divider" />
+
+  <div class="shortcut-section">
+    <div class="shortcut-label">Keyboard shortcut</div>
+    <div class="shortcut-display">
+      <span class="label">Toggle on / off</span>
+      <kbd>Alt+Shift+D</kbd>
+    </div>
+    <button id="changeShortcutBtn">
+      To change: open Chrome's shortcut manager
+      <span class="arrow">→</span>
+    </button>
+    <div id="copyConfirm">Copied! Paste in your address bar ↑</div>
+  </div>
+
+  <div class="hint">
+    <strong>Alt+Shift+D</strong> — toggle on/off (works in fullscreen)<br>
+    <strong>Ctrl+scroll</strong> — resize spotlight<br>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
