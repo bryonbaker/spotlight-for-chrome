@@ -19,6 +19,16 @@ A Chrome extension that dims the entire page and projects a soft spotlight where
 - **Settings persist** — spotlight size and dim level are saved across browser sessions
 
 ---
+## Examples
+
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="./examples/example-spotlight.png" alt="Spotlight focus example" width="300" /></td>
+    <td align="center" valign="top"><img src="./examples/example-splotlight-2.png" alt="Spotlight focus example 2" width="300" /></td>
+  </tr>
+</table>
+
+---
 
 ## Installation
 
