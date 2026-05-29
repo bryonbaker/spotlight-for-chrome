@@ -41,6 +41,8 @@ This extension is not published to the Chrome Web Store. Install it in developer
 5. Select the `spotlight-extension` folder (the one containing `manifest.json`)
 6. The 🔦 Spotlight Focus icon will appear in your Chrome toolbar
 
+NOTE: It is recommended to install the extension in the "proper" Chrome developer extensions directory. If you don't, I have seen case where Spotlight disappears from Chrome on startup. In Linux the directory is: `$HOME/.config/google-chrome/Default/Extensions`
+
 > **After installing**, go to `chrome://extensions/shortcuts` and confirm that `Alt+Shift+D` is assigned to "Toggle spotlight on/off". If the field is empty, click it and press `Alt+Shift+D` to set it.
 
 ---
