@@ -180,6 +180,51 @@ Open DevTools on any page where the extension is running. In the Console, use th
 
 ---
 
+## Integrations
+
+### QMK
+
+If you use a [QMK-powered keyboard](https://qmk.fm/) you can bind the spotlight toggle to a [tap-dance action](https://docs.qmk.fm/features/tap_dance), so that a single press sends the key normally and a double-tap fires the Spotlight shortcut (default `Alt+Shift+D`).
+
+**1. Define the macro and tap-dance enum**
+
+```c
+enum {
+    TD_SPOTLT
+};
+
+#define SPOTLT LALT(LSFT(KC_D))
+
+tap_dance_action_t tap_dance_actions[] = {
+    [TD_SPOTLT] = ACTION_TAP_DANCE_DOUBLE(KC_LALT, SPOTLT)
+};
+```
+
+This sends `LALT` on a single tap and `Alt+Shift+D` on a double-tap.
+
+**2. Place it in your keymap**
+
+Replace the `KC_LALT` entry in your layout with `TD(TD_SPOTLT)`:
+
+```c
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [BASE] = LAYOUT(
+        // ...
+        KC_LCTL,  KC_LWIN,  TD(TD_SPOTLT),  /* ... */  KC_SPC,  // ...
+    ),
+};
+```
+
+**3. Enable tap-dance in `rules.mk`**
+
+```makefile
+TAP_DANCE_ENABLE = yes
+```
+
+After flashing, double-tapping Left Alt will toggle the spotlight on and off without needing to reach for a modifier chord.
+
+---
+
 ## Known Limitations
 
 - **`chrome://` pages** — Chrome prohibits any extension from running on its own internal pages. The spotlight cannot be used on the new tab page, settings, or `chrome://extensions/` itself.
