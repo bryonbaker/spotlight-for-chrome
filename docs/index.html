@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotlight Focus - Chrome Extension</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+        }
+
+        main {
+            padding: 50px 40px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .installation {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .installation ol {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .installation li {
+            margin-bottom: 12px;
+            padding-left: 10px;
+        }
+
+        .installation code {
+            background: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #764ba2;
+            font-weight: 600;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .note strong {
+            color: #856404;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            main {
+                padding: 30px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="icon">🔦</div>
+            <h1>Spotlight Focus</h1>
+            <p class="tagline">Enhance your presentations with a cursor-following spotlight effect</p>
+            <span class="version-badge">Version 3.3 • Manifest V3</span>
+        </header>
+
+        <main>
+            <section>
+                <h2>Overview</h2>
+                <p>Spotlight Focus is a Chrome extension that dims the entire page and projects a soft spotlight wherever your cursor moves. Perfect for presentations, screen sharing, and live demos where you need to draw your audience's attention to specific parts of the screen.</p>
+
+                <div class="cta-buttons">
+                    <a href="https://github.com/yourusername/spotlight-for-chrome/releases" class="btn btn-primary">📥 Download Extension</a>
+                    <a href="https://github.com/yourusername/spotlight-for-chrome" class="btn btn-secondary">⭐ View on GitHub</a>
+                </div>
+            </section>
+
+            <section>
+                <h2>Key Features</h2>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Cursor Tracking</h3>
+                        <p>Spotlight automatically follows your cursor with a smooth, feathered edge effect</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🎚️</div>
+                        <h3>Fully Adjustable</h3>
+                        <p>Control dim level (10-95%) and spotlight size (60-1200px diameter)</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Quick Resize</h3>
+                        <p>Hold Ctrl and scroll to resize the spotlight on the fly</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">⌨️</div>
+                        <h3>Keyboard Shortcut</h3>
+                        <p>Toggle with Alt+Shift+D, works even in fullscreen mode</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🌐</div>
+                        <h3>Works Everywhere</h3>
+                        <p>Compatible with Google Slides, CSP-restricted sites, and all web pages</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💾</div>
+                        <h3>Persistent Settings</h3>
+                        <p>Your preferences are automatically saved across browser sessions</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Installation</h2>
+                <div class="installation">
+                    <p><strong>Install in Developer Mode:</strong></p>
+                    <ol>
+                        <li>Download or clone the repository from GitHub</li>
+                        <li>Open Chrome and navigate to <code>chrome://extensions/</code></li>
+                        <li>Enable <strong>Developer mode</strong> using the toggle in the top-right corner</li>
+                        <li>Click <strong>Load unpacked</strong></li>
+                        <li>Select the <code>source</code> folder (containing manifest.json)</li>
+                        <li>The 🔦 Spotlight Focus icon will appear in your Chrome toolbar</li>
+                    </ol>
+
+                    <div class="note">
+                        <strong>Note:</strong> After installing, go to <code>chrome://extensions/shortcuts</code> to confirm that Alt+Shift+D is assigned to "Toggle spotlight on/off". If empty, click the field and press Alt+Shift+D to set it.
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>How to Use</h2>
+                <div class="installation">
+                    <ol>
+                        <li>Click the 🔦 icon in your toolbar to open settings</li>
+                        <li>Click <strong>Enable Spotlight</strong> or press <code>Alt+Shift+D</code></li>
+                        <li>Move your cursor to see the spotlight effect</li>
+                        <li>Adjust brightness and size sliders in the popup</li>
+                        <li>Hold <code>Ctrl</code> and scroll to resize while active</li>
+                        <li>Toggle off when you're done presenting</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section>
+                <h2>Support & Feedback</h2>
+                <div class="cta-buttons">
+                    <a href="https://github.com/yourusername/spotlight-for-chrome/issues" class="btn btn-secondary">🐛 Report an Issue</a>
+                    <a href="privacy.html" class="btn btn-secondary">🔒 Privacy Policy</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Spotlight Focus • Open Source • MIT License</p>
+            <div class="footer-links">
+                <a href="https://github.com/yourusername/spotlight-for-chrome">GitHub Repository</a>
+                <a href="https://github.com/yourusername/spotlight-for-chrome/issues">Report Issues</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

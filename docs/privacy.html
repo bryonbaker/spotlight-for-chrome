@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Spotlight Focus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .last-updated {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+
+        main {
+            padding: 50px 40px;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 8px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #764ba2;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #764ba2;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #764ba2;
+            transform: translateX(-5px);
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            main {
+                padding: 30px 20px;
+            }
+
+            footer {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="icon">🔒</div>
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: June 22, 2026</p>
+        </header>
+
+        <main>
+            <a href="index.html" class="back-link">← Back to Home</a>
+
+            <h2>Overview</h2>
+            <p>Spotlight Focus is a Chrome extension designed to enhance browser-based presentations by dimming the active tab and creating a spotlight effect around your cursor. This privacy policy explains what data the extension collects and how it is used.</p>
+
+            <div class="success-box">
+                <strong>TL;DR:</strong> Spotlight Focus does not collect, store, or transmit any personal data. The only data stored are your local preferences (spotlight size, brightness level, on/off state) which never leave your device.
+            </div>
+
+            <h2>Data Collection</h2>
+
+            <h3>What We DO Collect</h3>
+            <p>Spotlight Focus stores only the following user preferences locally on your device:</p>
+            <ul>
+                <li><strong>Spotlight State</strong> - Whether the spotlight effect is currently enabled or disabled</li>
+                <li><strong>Spotlight Radius</strong> - The size of your spotlight circle (in pixels)</li>
+                <li><strong>Dim Opacity</strong> - The brightness level of the dimming effect (percentage)</li>
+            </ul>
+            <div class="highlight-box">
+                These settings are stored locally using Chrome's <code>chrome.storage.local</code> API and remain on your device. They are <strong>never transmitted</strong> to any server or third party.
+            </div>
+
+            <h3>What We DO NOT Collect</h3>
+            <p>Spotlight Focus does <strong>not</strong> collect, store, or transmit:</p>
+            <ul>
+                <li>Personal information (name, email, address, etc.)</li>
+                <li>Browsing history or visited URLs</li>
+                <li>Page content from any website</li>
+                <li>Keystroke data or typed content</li>
+                <li>Mouse position data (tracked in real-time for visual effect only, never stored)</li>
+                <li>Credentials, passwords, or authentication information</li>
+                <li>Financial information</li>
+                <li>Location data</li>
+                <li>Health information</li>
+                <li>Any other personally identifiable information</li>
+            </ul>
+
+            <h2>How Data is Used</h2>
+            <p>The locally stored user preferences are used solely to:</p>
+            <ol>
+                <li>Remember your spotlight settings between browser sessions</li>
+                <li>Apply your preferred visual effect settings when you activate the extension</li>
+                <li>Maintain consistency across different tabs and windows</li>
+            </ol>
+
+            <h2>Data Storage</h2>
+            <p>All data is stored locally on your device using Chrome's built-in storage API. No data is transmitted to external servers, cloud services, or third parties.</p>
+
+            <h2>Third-Party Access</h2>
+            <p>Spotlight Focus does <strong>not</strong>:</p>
+            <ul>
+                <li>Share data with third parties</li>
+                <li>Sell user data</li>
+                <li>Use analytics or tracking services</li>
+                <li>Communicate with external servers</li>
+                <li>Include advertisements or trackers</li>
+            </ul>
+
+            <h2>Permissions Explanation</h2>
+            <p>Spotlight Focus requires the following Chrome permissions:</p>
+            <ul>
+                <li><strong>activeTab</strong> - To apply the visual effect to the currently active tab</li>
+                <li><strong>scripting</strong> - To inject the visual overlay onto web pages</li>
+                <li><strong>storage</strong> - To save your preference settings locally</li>
+                <li><strong>tabs</strong> - To detect tab switches and page loads</li>
+                <li><strong>Host permissions (<code>&lt;all_urls&gt;</code>)</strong> - To allow the spotlight effect on any website you're presenting</li>
+            </ul>
+            <div class="highlight-box">
+                These permissions are used exclusively for the extension's core functionality and do not enable data collection.
+            </div>
+
+            <h2>Data Security</h2>
+            <p>Since all data is stored locally on your device and the extension does not communicate with external servers, your data security is maintained by Chrome's built-in security mechanisms.</p>
+
+            <h2>Changes to Privacy Policy</h2>
+            <p>We may update this privacy policy from time to time. Any changes will be reflected in the "Last Updated" date at the top of this document and published to this repository.</p>
+
+            <h2>Open Source</h2>
+            <p>This extension is open source. You can review the complete source code at <a href="https://github.com/yourusername/spotlight-for-chrome" target="_blank">GitHub</a> to verify these privacy claims.</p>
+
+            <h2>Contact</h2>
+            <p>If you have questions about this privacy policy, please <a href="https://github.com/yourusername/spotlight-for-chrome/issues" target="_blank">open an issue on our GitHub repository</a>.</p>
+
+            <h2>Your Rights</h2>
+            <p>You can:</p>
+            <ul>
+                <li>Clear all stored preferences by removing and reinstalling the extension</li>
+                <li>Review what data is stored by inspecting Chrome's local storage in Developer Tools</li>
+                <li>Disable or uninstall the extension at any time</li>
+            </ul>
+
+            <h2>Compliance</h2>
+            <p>This extension complies with:</p>
+            <ul>
+                <li>Chrome Web Store Developer Program Policies</li>
+                <li>General Data Protection Regulation (GDPR)</li>
+                <li>California Consumer Privacy Act (CCPA)</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Spotlight Focus • <a href="index.html">Home</a> • <a href="https://github.com/yourusername/spotlight-for-chrome">GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

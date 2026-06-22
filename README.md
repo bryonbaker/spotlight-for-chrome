@@ -4,6 +4,8 @@ A Chrome extension that dims the entire page and projects a soft spotlight where
 
 ![Version](https://img.shields.io/badge/version-3.3-yellow) ![Manifest](https://img.shields.io/badge/manifest-v3-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
+**[🌐 View Website](https://yourusername.github.io/spotlight-for-chrome/)** | **[🐛 Report Issue](https://github.com/yourusername/spotlight-for-chrome/issues)** | **[🔒 Privacy Policy](PRIVACY_POLICY.md)**
+
 ---
 
 ## Features
@@ -38,7 +40,7 @@ This extension is not published to the Chrome Web Store. Install it in developer
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable **Developer mode** using the toggle in the top-right corner
 4. Click **Load unpacked**
-5. Select the `spotlight-extension` folder (the one containing `manifest.json`)
+5. Select the `source` folder (the one containing `manifest.json`)
 6. The 🔦 Spotlight Focus icon will appear in your Chrome toolbar
 
 NOTE: It is recommended to install the extension in the "proper" Chrome developer extensions directory. If you don't, I have seen case where Spotlight disappears from Chrome on startup. In Linux the directory is: `$HOME/.config/google-chrome/Default/Extensions`
@@ -93,16 +95,22 @@ The global shortcut (`Alt+Shift+D`) can be changed through Chrome's built-in sho
 ## File Structure
 
 ```
-spotlight-extension/
-├── manifest.json      # Extension manifest (MV3), declares permissions and shortcuts
-├── background.js      # Service worker: manages state, tab sync, keyboard command
-├── content.js         # Injected into every frame: renders overlay, handles mouse/scroll
-├── popup.html         # Toolbar popup UI
-├── popup.js           # Popup logic: reads/writes state, slider handlers
-├── icon16.png         # Toolbar icon (16×16)
-├── icon48.png         # Extensions page icon (48×48)
-├── icon128.png        # Chrome Web Store icon (128×128)
-└── README.md          # This file
+spotlight-for-chrome/
+├── source/
+│   ├── manifest.json      # Extension manifest (MV3), declares permissions and shortcuts
+│   ├── background.js      # Service worker: manages state, tab sync, keyboard command
+│   ├── content.js         # Injected into every frame: renders overlay, handles mouse/scroll
+│   ├── popup.html         # Toolbar popup UI
+│   ├── popup.js           # Popup logic: reads/writes state, slider handlers
+│   ├── icon16.png         # Toolbar icon (16×16)
+│   ├── icon48.png         # Extensions page icon (48×48)
+│   └── icon128.png        # Chrome Web Store icon (128×128)
+├── docs/                  # GitHub Pages website
+│   ├── index.html         # Landing page
+│   └── privacy.html       # Privacy policy
+├── examples/              # Screenshots
+├── PRIVACY_POLICY.md      # Privacy policy (markdown)
+└── README.md              # This file
 ```
 
 ---
