@@ -4,7 +4,7 @@ A Chrome extension that dims the entire page and projects a soft spotlight where
 
 ![Version](https://img.shields.io/badge/version-3.3-yellow) ![Manifest](https://img.shields.io/badge/manifest-v3-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-**[🌐 View Website](https://yourusername.github.io/spotlight-for-chrome/)** | **[🐛 Report Issue](https://github.com/yourusername/spotlight-for-chrome/issues)** | **[🔒 Privacy Policy](PRIVACY_POLICY.md)**
+**[🌐 View Website](https://bryonbaker.github.io/spotlight-for-chrome/)** | **[🐛 Report Issue](https://github.com/bryonbaker/spotlight-for-chrome/issues)** | **[🔒 Privacy Policy](PRIVACY_POLICY.md)**
 
 ---
 

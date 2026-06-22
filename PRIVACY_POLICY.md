@@ -77,7 +77,7 @@ We may update this privacy policy from time to time. Any changes will be reflect
 
 ## Open Source
 
-This extension is open source. You can review the complete source code at [https://github.com/yourusername/spotlight-for-chrome](https://github.com/yourusername/spotlight-for-chrome) to verify these privacy claims.
+This extension is open source. You can review the complete source code at [https://github.com/bryonbaker/spotlight-for-chrome](https://github.com/bryonbaker/spotlight-for-chrome) to verify these privacy claims.
 
 ## Contact
 
