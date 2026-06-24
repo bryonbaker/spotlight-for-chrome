@@ -235,9 +235,10 @@ After flashing, double-tapping Left Alt will toggle the spotlight on and off wit
 
 ## Known Limitations
 
-- **`chrome://` pages** — Chrome prohibits any extension from running on its own internal pages. The spotlight cannot be used on the new tab page, settings, or `chrome://extensions/` itself.
-- **Spotlight size via scroll** — `Ctrl+scroll` to resize only works when the cursor is over the page, not over browser UI elements like the address bar.
-- **Google Meet / video call overlays** — Some video conferencing tools render their UI in ways that may partially obscure the spotlight overlay. The spotlight still works but may not cover call controls.
+- **`chrome://` pages** - Chrome prohibits any extension from running on its own internal pages. The spotlight cannot be used on the new tab page, settings, or `chrome://extensions/` itself.
+- **Spotlight size via scroll** - `Ctrl+scroll` to resize only works when the cursor is over the page, not over browser UI elements like the address bar.
+- **Google Meet / video call overlays** - Some video conferencing tools render their UI in ways that may partially obscure the spotlight overlay. The spotlight still works but may not cover call controls.
+- **Microsoft Teams** - I have experienced issues using this tool when presenting using the web version of Microsoft Teams. The spotlight control does not activate properly and once it does you need to refresh the page after turning it off. I do not recommend usig this with an MS Teams presentation.
 
 ---
 
